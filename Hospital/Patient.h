@@ -35,6 +35,14 @@ public:
             disease = nullptr;
         }
     }
+
+
+    std::string getStatus() {
+        if (isCured) return "Cured";
+        if (treatment && treatment->needsInjection) return "Need Injection";
+        if (treatment && !treatment->gotMedicine) return "Need Medicine";
+        return "Doctor Visit Needed";
+    }
 };
 
 #endif // PATIENT_H
